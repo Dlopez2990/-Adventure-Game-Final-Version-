@@ -1,0 +1,570 @@
+import random
+
+# Function to interact with a villager
+def interact_with_villager():
+    # List of possible responses from the villager
+    greetings = ["Hi", "Hello there", "Greetings"]
+    questions = ["What brings you to our village?", "Are you here on a quest?", "Can I help you with something?"]
+    offers = ["Say, are you looking to earn some coin?", "I've got a task that might pay well, if you're interested."]
+    
+    # List of randomly chosen villager names
+    npc_name_choices = ["Dexter", "Ryan", "Dawn", "Andie"]
+    
+    # Randomly select a villager name
+    npc_name = random.choice(npc_name_choices)
+    
+    print(f"{npc_name}: {random.choice(greetings)}, I am {npc_name}. {random.choice(questions)}")
+    
+    answer = input(f"{npc_name}: {random.choice(offers)} (Press 'y' for yes, any other key for no): ")
+    
+    if answer.lower() == "y":
+        task = "deliver a package"  # Actual task description
+        reward = random.randint(10, 50)  # Random coin reward
+        print(f"{npc_name}: Excellent! I need someone to {task}. I'll reward you with {reward} coins.")
+        
+        package_delivered = input("Did you successfully deliver the package? (Press 'y' for yes, any other key for no): ")
+        
+        if package_delivered.lower() == "y":
+            follow_up = input(f"{npc_name}: Well done! You've proven yourself reliable. So, what brings you here? Are you on a quest to help with the trouble in our town? (Press 'y' to tell your quest, any other key to decline): ")
+            if follow_up.lower() == "y":
+                print(f"{npc_name}: A hero, eh? That's impressive. We could use all the help we can get.")
+                visit_options = input(f"{npc_name}: Would you like to:\n1. Visit the local tavern to gather information from townspeople?\n2. Take on tasks to earn money and supplies?\n3. Rest at the inn.\n(Press '1', '2', '3', or any other key to decline): ")
+            
+                if visit_options == "1":
+                    print("You decided to visit the local tavern to gather information from townspeople.")
+                    tavern_info = ["They say there's a dense and eerie Forgotten Forest to the east.", "Legends speak of mythical creatures and hidden dangers in the Forgotten Forest."]
+                    for info in tavern_info:
+                        print(f"Local Villager: {info}")
+                    
+                    forest_option = input("Would you like to head to the Forgotten Forest? (Press 'y' for yes, any other key to decline): ")
+                    if forest_option.lower() == "y":
+                        print("You've decided to head to the Forgotten Forest.")
+                       
+                    else:
+                        print("You've chosen not to venture into the Forgotten Forest for now.")
+                elif visit_options == "2":
+                    print("You chose to take on tasks to earn money and supplies.")
+                    task_choice = input("Here's a task for you: Gather some herbs from the nearby forest. It's a dangerous place, but the reward is worth it. Will you accept? (Press 'y' for yes, any other key to decline): ")
+                    if task_choice.lower() == "y":
+                        herbs_collected = random.randint(2, 5)  # Random number of herbs collected
+                        herbs_reward = herbs_collected * 5  # Reward based on the number of herbs collected
+                        print(f"You ventured into the forest and collected {herbs_collected} herbs. You earned {herbs_reward} coins.")
+                    else:
+                        print("You've declined the task for now.")
+                    
+                elif visit_options == "3":
+                    print("You opted to rest at the inn to regain your strength.")
+                    inn_option = input("While resting, you overhear tales of a dense and eerie Forgotten Forest to the east. Legends speak of mythical creatures and hidden dangers. Would you like to head to the Forgotten Forest? (Press 'y' for yes, any other key to decline): ")
+                    if inn_option.lower() == "y":
+                        print("You've decided to head to the Forgotten Forest.")
+                        
+                    else:
+                        print("You've chosen not to venture into the Forgotten Forest for now.")
+                else:
+                    print(f"{npc_name}: Alright, let me know if you change your mind.")
+            else:
+                print(f"{npc_name}: Fair enough. Let me know if you change your mind.")
+        else:
+            print(f"{npc_name}: Oh well, maybe next time. Let me know if you decide to help.")
+    else:
+        quest_response = input(f"{npc_name}: Oh? What's your business here? Are you here to help with the trouble that's been plaguing our town? (Press 'y' to tell your quest, any other key to decline): ")
+        if quest_response.lower() == "y":
+            print(f"{npc_name}: A hero, eh? That's impressive. We could use all the help we can get.")
+            visit_options = input(f"{npc_name}: Would you like to:\n1. Visit the local tavern to gather information from townspeople?\n2. Take on tasks to earn money and supplies?\n3. Rest at the inn.\n(Press '1', '2', '3', or any other key to decline): ")
+            
+            if visit_options == "1":
+                print("You decided to visit the local tavern to gather information from townspeople.")
+                tavern_info = ["They say there's a dense and eerie Forgotten Forest to the east.", "Legends speak of mythical creatures and hidden dangers in the Forgotten Forest."]
+                for info in tavern_info:
+                    print(f"Local Villager: {info}")
+                
+                forest_option = input("Would you like to head to the Forgotten Forest? (Press 'y' for yes, any other key to decline): ")
+                if forest_option.lower() == "y":
+                    print("You've decided to head to the Forgotten Forest.")
+                    
+                else:
+                    print("You've chosen not to venture into the Forgotten Forest for now.")
+            elif visit_options == "2":
+                print("You chose to take on tasks to earn money and supplies.")
+                task_choice = input("Here's a task for you: Gather some herbs from the nearby forest. It's a dangerous place, but the reward is worth it. Will you accept? (Press 'y' for yes, any other key to decline): ")
+                if task_choice.lower() == "y":
+                    herbs_collected = random.randint(2, 5)  # Random number of herbs collected
+                    herbs_reward = herbs_collected * 5  # Reward based on the number of herbs collected
+                    print(f"You ventured into the forest and collected {herbs_collected} herbs. You earned {herbs_reward} coins.")
+                else:
+                    print("You've declined the task for now.")
+                
+            elif visit_options == "3":
+                print("You opted to rest at the inn to regain your strength.")
+                inn_option = input("While resting, you overhear tales of a dense and eerie Forgotten Forest to the east. Legends speak of mythical creatures and hidden dangers. Would you like to head to the Forgotten Forest? (Press 'y' for yes, any other key to decline): ")
+                if inn_option.lower() == "y":
+                    print("You've decided to head to the Forgotten Forest.")
+                    
+                else:
+                    print("You've chosen not to venture into the Forgotten Forest for now.")
+            else:
+                print(f"{npc_name}: Alright, let me know if you change your mind.")
+        else:
+            other_reason = input(f"{npc_name}: No worries. If you don't mind me asking, what are you doing here in our town? (Press 'y' to answer, any other key to decline): ")
+            if other_reason.lower() == "y":
+                player_reason = input("Please tell me more about your purpose here: ")
+                print(f"{npc_name}: I see, thank you for sharing. Safe travels.")
+            else:
+                print(f"{npc_name}: Fair enough. Let me know if you change your mind or need assistance.")
+
+
+interact_with_villager()
+
+import random
+
+def handle_banshee_encounter():
+    print("You follow the whisper and face a Banshee.")
+    print("Player Actions:")
+    print("1. Stand your ground and face the Banshee.")
+    print("2. Attempt to flee.")
+    
+    choice = input("Enter your choice: ")
+    
+    if choice == "1":
+        outcome = random.choice(["win", "lose"])
+        
+        if outcome == "win":
+            print("You defeat the Banshee and find a key.")
+            follow_key_option()
+        else:
+            print("The Banshee's power overwhelms you.")
+            print("Player Actions:")
+            print("1. Try again.")
+            print("2. Return to Thornfall.")
+            
+            choice_try_again = input("Enter your choice: ")
+            
+            if choice_try_again == "1":
+                print("You gather your resolve and face the Banshee again.")
+                handle_banshee_encounter()
+            elif choice_try_again == "2":
+                print("You retreat and return to Thornfall.")
+            else:
+                print("Invalid choice.")
+            
+    elif choice == "2":
+        print("You attempt to flee but the Banshee's wail follows you.")
+        print("Player Actions:")
+        print("1. Turn back and retrace your steps.")
+        print("2. Look into the mist.")
+        
+        choice_flee = input("Enter your choice: ")
+        
+        if choice_flee == "1":
+            print("You turn back and retrace your steps.")
+            original_spot_options()
+        elif choice_flee == "2":
+            print("You look into the mist and see large shadows.")
+            print("Your instincts tell you it's not wise to continue.")
+            original_spot_options()
+        else:
+            print("Invalid choice.")
+
+def follow_key_option():
+    choice = input("The key is shaking. Do you want to follow it? (y/n): ")
+    
+    if choice.lower() == "y":
+        print("The key leads you through dense undergrowth and mysterious paths.")
+        print("As you go deeper, the forest seems to become even more enchanted and eerie.")
+        print("Continue the story with the deeper forest section.")
+    elif choice.lower() == "n":
+        original_spot_options()
+    else:
+        print("The key leads you through dense undergrowth and mysterious paths.")
+        print("As you go deeper, the forest seems to become even more enchanted and eerie.")
+        print("Continue the story with the deeper forest section.")
+
+def original_spot_options():
+    print("Player Actions:")
+    print("1. Follow the mysterious whisper (encounter Banshee fight - win or lose).")
+    print("2. Attempt to head East (leads to a dead end on a cliffside).")
+    print("3. Head North to return to Thornfall.")
+    
+    choice = input("Enter your choice: ")
+    
+    if choice == "1":
+        handle_banshee_encounter()
+    elif choice == "2":
+        print("You head east but find a dead end on a cliffside.")
+        original_spot_options()
+    elif choice == "3":
+        print("You return to Thornfall.")
+    else:
+        print("Invalid choice.")
+
+def chapter_two_journey():
+    print("Chapter 2: Journey to the Forgotten Forest")
+    print("Intro: The player ventures into the dense and eerie Forgotten Forest.")
+    original_spot_options()
+
+chapter_two_journey()
+
+import random
+
+# Chapter 3: Deep Roots
+def chapter_3():
+    print("Chapter 3: Deep Roots")
+    print("Intro:")
+    print("The player is deep into the Forgotten Forest, and the ground is covered in fog, creating an eerie atmosphere.")
+    
+    player_has_key = random.choice([True, False])  # Simulating whether the player has the key or not
+    
+    if player_has_key:
+        print("Scene:")
+        print("You feel a peculiar sensation as you continue through the dense mist.")
+        print("The key you acquired earlier begins to shake, as if it's leading you somewhere.")
+        print("The fog swirls around you, and a path starts to form before you, guided by the shaking key.")
+        
+        choice = input("\nPlayer Actions:\n"
+                       "1. Follow the shaking key towards the artifact (Chapter 4)\n"
+                       "2. Head South to cut waves of vines and encounter a poison Ivy plant\n"
+                       "3. Head North to return to Thornfall (Chapter 2)\n"
+                       "Choose your action (1, 2, or 3): ")
+
+        if choice == "1":
+            print("You decide to follow the shaking key towards the artifact. You're one step closer to uncovering the mysteries of the forest.")
+            
+            friendly_banshee()
+            
+        elif choice == "2":
+            print("You head South, ready to cut through waves of vines. As you progress, you encounter a menacing poison Ivy plant.")
+            fight_poison_ivy()
+            
+        elif choice == "3":
+            print("You decide to head North, back towards Thornfall. Your journey takes you back through familiar terrain.")
+            chapter_2()
+            
+        else:
+            print("Invalid choice. Please choose 1, 2, or 3.")
+
+    else:
+        print("Scene:")
+        print("As you continue through the dense mist, an unsettling howl slices through the air.")
+        print("The spectral figure of the Banshee reappears before you, her mournful eyes fixed on yours.")
+        print("She is a creature of both beauty and sorrow, her voice echoing with tales of a tragic past.")
+        
+        choice = input("\nPlayer Actions:\n"
+                       "1. Engage the Banshee in conversation\n"
+                       "2. Attempt to move past the Banshee and continue your journey\n"
+                       "Choose your action (1 or 2): ")
+
+        if choice == "1":
+            print("You decide to engage in conversation with the Banshee, hoping to learn more about her and the forest's history.")
+            banshee_conversation()
+            
+        elif choice == "2":
+            print("You choose to attempt to move past the Banshee and continue your journey through the mist-shrouded woods.")
+            continue_journey()
+            
+        else:
+            print("Invalid choice. Please choose 1 or 2.")
+
+
+def chapter_2():
+    print("Chapter 2 content goes here.")
+    
+def chapter_4():
+    print("Chapter 4 content goes here.")
+    
+def fight_poison_ivy():
+    print("Fight with the poison Ivy plant begins!\n")
+    
+    player_health = 100
+    poison_ivy_health = 50  # poison Ivy's health to be weaker
+    poison_ivy_attack = 10  
+    
+    while player_health > 0 and poison_ivy_health > 0:
+        print("Your Health:", player_health)
+        print("Poison Ivy's Health:", poison_ivy_health)
+        print("\nOptions:")
+        print("1. Attack")
+        print("2. Defend")
+        
+        choice = input("Choose your action (1 or 2): ")
+        
+        if choice == "1":
+            player_damage = random.randint(15, 30)  # Player's damage range
+            
+            print("You attack the Poison Ivy plant and deal", player_damage, "damage!")
+            poison_ivy_health -= player_damage
+            
+            if poison_ivy_health > 0:
+                poison_ivy_damage = random.randint(5, 15)  # Poison Ivy's damage range
+                print("The Poison Ivy plant attacks you and deals", poison_ivy_damage, "damage!")
+                player_health -= poison_ivy_damage
+            
+        elif choice == "2":
+            poison_ivy_damage = random.randint(5, 15)  # Poison Ivy's damage range
+            player_damage_reduction = random.randint(5, 15)
+            
+            print("You choose to defend against the Poison Ivy's attack.")
+            print("The Poison Ivy plant attacks you and deals", poison_ivy_damage, "damage!")
+            print("Your defense reduces the damage by", player_damage_reduction)
+            
+            player_health -= max(0, (poison_ivy_damage - player_damage_reduction))
+            
+        else:
+            print("Invalid choice. Please choose 1 or 2.")
+    
+    if player_health <= 0:
+        print("You have been defeated by the Poison Ivy plant.")
+    else:
+        print("You have defeated the Poison Ivy plant!")
+        chapter_4()
+
+def banshee_conversation():
+    print("Banshee conversation content goes here.")
+    
+def continue_journey():
+    print("Continuation of the journey content goes here.")
+    
+def friendly_banshee():
+    print("You continue to follow the shaking key through the forest. Suddenly, a friendly Banshee appears before you.")
+    print("She smiles gently and speaks in a soothing voice.")
+    print("Friendly Banshee: 'Fear not, traveler. The key you have found is leading you to your destined path.")
+    print("You will find glory and honor, or perhaps a more peaceful end. Embrace the journey.'")
+    
+    choice = input("\nPlayer Actions:\n"
+                   "1. Thank the Banshee and continue on the path\n"
+                   "2. Ask the Banshee for more guidance\n"
+                   "Choose your action (1 or 2): ")
+    
+    if choice == "1":
+        print("You thank the Banshee for her words and continue following the shaking key with renewed determination.")
+        chapter_4()
+    elif choice == "2":
+        print("You ask the Banshee for more guidance, seeking a clearer understanding of your path.")
+        print("Friendly Banshee: 'The journey holds its mysteries, and I can only offer cryptic guidance.'")
+        print("Friendly Banshee: 'Remember, every choice shapes your destiny. Embrace the unknown.'")
+        choice = input("\nPlayer Actions:\n"
+                       "1. Thank the Banshee and continue on the path\n"
+                       "Choose your action (1): ")
+        if choice == "1":
+            print("You thank the Banshee and continue following the shaking key, your heart and mind focused on the adventure ahead.")
+            chapter_4()
+        else:
+            print("Invalid choice. Please choose 1.")
+    else:
+        print("Invalid choice. Please choose 1 or 2.")
+
+
+chapter_3()
+
+import random
+
+# Chapter 4: Unraveling the Secrets
+def chapter_4():
+    print("Chapter 4: Unraveling the Secrets")
+    print("Intro:")
+    print("The player unravels the mysteries surrounding the artifact and the dark shadow, heading towards ancient ruins.")
+    
+    print("Scene:")
+    print("You stand before the entrance of the ancient ruins, the air heavy with a sense of history and foreboding.")
+    print("The path ahead is dimly lit, and shadows dance on the walls, whispering secrets of bygone eras.")
+    
+    choice = input("\nPlayer Actions:\n"
+                   "1. Explore the ancient ruins\n"
+                   "2. Head out of the ancient ruins to return to the Forgotten Forest (Chapter 3)\n"
+                   "Choose your action (1 or 2): ")
+    
+    if choice == "1":
+        print("You cautiously step into the ancient ruins, your heart racing as you delve deeper into the unknown.")
+        explore_ruins()
+    elif choice == "2":
+        print("You decide to head out of the ancient ruins and return to the Forgotten Forest, your instincts guiding you back.")
+        chapter_3()
+    else:
+        print("Invalid choice. Please choose 1 or 2.")
+
+
+def chapter_3():
+    print("Chapter 3 content goes here.")
+    
+def explore_ruins():
+    print("As you explore the ancient ruins, you feel an uneasy tension in the air.")
+    print("The passages wind and twist, revealing murals of forgotten legends and inscriptions in a language you can't decipher.")
+    
+    quiet_option = input("\nOptions:\n"
+                         "1. Move as quietly as possible\n"
+                         "2. Keep walking without being cautious\n"
+                         "Choose your action (1 or 2): ")
+    
+    if quiet_option == "1":
+        print("You move as quietly as possible, trying to avoid alerting any potential dangers within the ruins.")
+        ambush_warning()
+    elif quiet_option == "2":
+        print("You continue walking without being cautious, hoping to uncover the secrets of the ruins.")
+        ambush()
+    else:
+        print("Invalid choice. Please choose 1 or 2.")
+
+def ambush_warning():
+    print("As you stealthily navigate the ruins, you pick up on subtle sounds and vibrations.")
+    print("Your instincts warn you of an impending danger.")
+    print("You gain knowledge that a surprise attack from the Lizard men is being planned to target Thornfall.")
+    
+    choice = input("\nOptions:\n"
+                   "1. Follow the key deeper into the ruins\n"
+                   "2. Leave the ruins to return to Thornfall and warn the townsfolk\n"
+                   "Choose your action (1 or 2): ")
+    
+    if choice == "1":
+        print("You decide to follow the key deeper into the ruins, determined to uncover more secrets.")
+        continue_deeper()
+    elif choice == "2":
+        print("With the knowledge of the impending attack, you choose to leave the ruins and hurry back to Thornfall.")
+        print("Your heart heavy with the weight of the impending danger, you make your way back to the town.")
+        chapter_3()
+    else:
+        print("Invalid choice. Please choose 1 or 2.")
+
+def continue_deeper():
+    print("You follow the key as it leads you through the intricate passageways of the ruins.")
+    print("The air grows colder and more suffused with ancient magic.")
+    print("As you venture deeper, the secrets of the ruins and the artifact become more palpable.")
+    print("Suddenly, the key in your pocket starts to glow faintly.")
+    print("Before you can react, the key flies out of your pocket and hovers in front of you.")
+    print("It then connects to a small, ornate slot in the wall.")
+    
+    choice = input("\nOptions:\n"
+                   "1. Turn the key\n"
+                   "2. Leave the key and leave the ruins\n"
+                   "Choose your action (1 or 2): ")
+    
+    if choice == "1":
+        print("With a deep breath, you turn the key in the slot.")
+        print("A faint rumbling echoes through the ruins as the key turns, and a hidden passage is revealed.")
+        print("You step through the passage and find a treasure chest.")
+        print("Inside the chest, you discover a magnificent golden sword and a pouch containing 1,000 coins.")
+        print("Feeling triumphant, you leave the ruins with your newfound treasure.")
+        print("As you exit the ruins, you race back to Thornfall to warn the townsfolk of the impending danger.")
+        
+    elif choice == "2":
+        print("You decide to leave the key for now and leave the ruins, your curiosity held at bay.")
+        print("The key returns to your side, and you make your way out of the ruins.")
+        chapter_3()
+    else:
+        print("Invalid choice. Please choose 1 or 2.")
+
+
+chapter_4()
+
+# Chapter 5: The Fate of Thornfall
+def chapter_5():
+    print("Chapter 5: The Fate of Thornfall")
+    print("Intro:")
+    print("The player returns to Thornfall to warn the townsfolk about the impending danger.")
+    
+    print("Scene:")
+    print("As you re-enter Thornfall, you can sense a heightened tension in the air.")
+    print("The townsfolk go about their business, but there's an unease that lingers beneath their expressions.")
+    print("With the golden sword at your side and the artifact key in hand, you make your way through the town.")
+    
+    choice = input("\nPlayer Actions:\n"
+                   "1. Head to the main castle to alert the king of the great danger to come\n"
+                   "2. Head towards the tavern to warn the townsfolk\n"
+                   "3. Leave town\n"
+                   "Choose your action (1, 2, or 3): ")
+    
+    if choice == "1":
+        print("You decide to head to the main castle to alert the king of the great danger approaching Thornfall.")
+        alert_king()
+    elif choice == "2":
+        print("You choose to head towards the tavern to warn the townsfolk about the impending threat.")
+        warn_townsfolk()
+    elif choice == "3":
+        print("With a heavy heart, you decide to leave town. Your journey ends here.")
+    else:
+        print("Invalid choice. Please choose 1, 2, or 3.")
+
+def alert_king():
+    print("You make your way to the main castle, where the guards are on high alert.")
+    print("As you approach the front gate, the guards stop you and demand to know your business.")
+    
+    print("You show the guards the artifact key and explain that you've returned from the Forgotten Forests with dire news.")
+    print("The guards understand the gravity of the situation and immediately allow you to enter the castle.")
+    
+    print("Inside the castle, you are granted an audience with the king. He eyes you with curiosity and asks, 'Who let you in and why are you here?'")
+    
+    print("You respectfully explain the situation, detailing the impending attack from the Lizard men and the need for Thornfall to prepare for the threat.")
+    print("The king listens attentively, and a heavy silence hangs in the air as the weight of your words sinks in.")
+    print("After a moment, the king speaks, 'We shall not take this threat lightly. We will rally our forces and make the necessary preparations.'")
+    print("He looks at you with newfound respect, 'You have done a great service to Thornfall, and we are in your debt.'")
+    print("With that, the king stands and gestures towards you, 'Join us in our preparations. We could use someone of your skills.'")
+    
+    join_choice = input("Will you join the preparations? (yes or no): ")
+    if join_choice.lower() == "yes":
+        print("With a determined nod, you accept the king's invitation to join the preparations.")
+        print("The night is long as you work together with the townsfolk and soldiers, fortifying the defenses of Thornfall.")
+        print("As dawn breaks, the sky starts to light up, and you can feel a sense of anticipation in the air.")
+        print("Suddenly, a chorus of screams and the sound of battle erupt from the outskirts of the town.")
+        print("The lizard men have arrived.")
+        
+        battle_choice = input("Options:\n"
+                              "1. Show your skills and push ahead alone\n"
+                              "2. Stay with the soldiers and fight together\n"
+                              "Choose your action (1 or 2): ")
+        
+        if battle_choice == "1":
+            print("You draw your golden sword and rush ahead, taking down several lizard men with precision and speed.")
+            print("As you charge, the soldiers rally around you, covering your flanks with a volley of arrows.")
+            print("However, you spot a soldier about to be ambushed from a blind spot.")
+            save_choice = input("Will you save the soldier? (yes or no): ")
+            if save_choice.lower() == "yes":
+                print("You react swiftly, striking down the lizard man about to attack the soldier.")
+                print("The soldier nods his thanks, and you continue to fight side by side.")
+                print("The battle is intense, but your combined efforts are paying off.")
+                print("As the last lizard man falls, you realize it's daytime, and the town is safe.")
+                print("The soldiers cheer, and you all head back to town victorious.")
+                celebration()
+            else:
+                print("The soldier's cry for help goes unanswered as you focus on the larger battle.")
+                print("After the battle, the soldier approaches you, looking disappointed, and yells, 'We're a team, stop showing off and help us next time!'")
+                print("The battle eventually comes to an end, and the town is safe.")
+                print("The soldiers cheer and thank you for your help.")
+                celebration()
+        elif battle_choice == "2":
+            print("You choose to stay with the soldiers, fighting side by side against the incoming lizard men.")
+            print("The battle is fierce, but with your combined efforts, you manage to hold the line.")
+            print("As the last lizard man falls, the sun rises, and the town is safe.")
+            print("The soldiers cheer, and you all head back to town victorious.")
+            celebration()
+        else:
+            print("Invalid choice. Please choose 1 or 2.")
+    else:
+        print("You politely decline the king's offer and take your leave from the castle.")
+        chapter_6()  # to be continued
+
+def warn_townsfolk():
+    print("You choose to head towards the tavern to warn the townsfolk about the impending threat.")
+    print("As you explain the situation to the townsfolk, you can see the fear in their eyes.")
+    print("They believe you, but their morale is low, and they don't seem to have the will to fight.")
+    print("Despite your warnings, the lizard men attack the town.")
+    print("You and the villagers put up a valiant effort, but the odds are against you.")
+    print("Unfortunately, you're overwhelmed by the lizard men's onslaught, and the town falls.")
+    print("The last thing you see is the destruction around you before everything goes dark.")
+    
+    reset_choice = input("The town has fallen, and your journey has come to a tragic end. Do you want to reset and try again? (yes or no): ")
+    if reset_choice.lower() == "yes":
+        chapter_5()  # Restart Chapter 5
+    else:
+        print("Thank you for playing!")
+
+def celebration():
+    print("As you return to town, the townsfolk greet you with cheers and applause.")
+    print("They hoist you up on their shoulders, celebrating you as the hero of Thornfall.")
+    print("Tears of joy are shed, and the town bursts into a festive celebration.")
+    print("You've saved Thornfall from the impending danger, and the townsfolk are eternally grateful.")
+    print("The game ends, thanking you for playing.")
+
+
+def chapter_6():
+    print("Chapter 6 to be continued.")
+
+
+chapter_5()
