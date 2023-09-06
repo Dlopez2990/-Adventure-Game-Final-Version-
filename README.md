@@ -4,7 +4,7 @@ Introduction
 Welcome to the Thornfall project's technical documentation: This guide is intended to give programmers and system administrators the knowledge they need to comprehend, manage, and use the game.
 
 Code Hosting:
-On GitHub, the Adventure Game codebase is kept. Access the repository by going to GitHub Repository URL (https://github.com/Dlopez2990/-Adventure-Game-Final-Version-/edit/main/README.md)
+On GitHub, the Adventure Game codebase is kept. Access the repository by going to GitHub Repository URL (https://github.com/Dlopez2990/-Adventure-Game-Final-Version-/blob/main/README.md))
 
 Languages:
 Python is primarily used in the creation of Thornfall. 
